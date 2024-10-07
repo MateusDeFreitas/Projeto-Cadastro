@@ -1,0 +1,245 @@
+CREATE TABLE `cliente_01` (
+  `A01_CODIGO` int NOT NULL,
+  `A01_NOME` varchar(50) NOT NULL,
+  `A01_ENDERECO` varchar(50) DEFAULT NULL,
+  `A01_TELEFONE` varchar(11) NOT NULL,
+  `A01_CREDITO` double DEFAULT NULL,
+  `A01_CPF` varchar(11) NOT NULL,
+  PRIMARY KEY (`A01_CODIGO`)
+);
+ 
+CREATE TABLE `pedido_02` (
+  `A02_codigo` int NOT NULL,
+  `A02_data` date NOT NULL,
+  `A02_valor_total` decimal(10,2) NOT NULL,
+  `A01_codigo` int NOT NULL,
+  PRIMARY KEY (`A02_codigo`),
+  KEY `A01_codigo` (`A01_codigo`),
+  CONSTRAINT `pedido_02_ibfk_1` FOREIGN KEY (`A01_codigo`) REFERENCES `cliente_01` (`A01_CODIGO`)
+);
+ 
+CREATE TABLE `produto_03` (
+  `A03_codigo` int NOT NULL,
+  `A03_descricao` varchar(250) NOT NULL,
+  `A03_valor_unitario` decimal(10,2) NOT NULL,
+  `A03_estoque` int NOT NULL,
+  PRIMARY KEY (`A03_codigo`)
+);
+ 
+CREATE TABLE ITEM_04 (
+    A04_codigo      INT NOT NULL,
+    A02_codigo      INT NOT NULL,
+    A03_codigo      INT NOT NULL,
+    A04_quantidade  INT NOT NULL,
+    A04_valor_item  DECIMAL(10,2) NOT NULL,
+    PRIMARY KEY(A04_codigo),
+    FOREIGN KEY (A02_CODIGO) REFERENCES PEDIDO_02(A02_codigo),
+    FOREIGN KEY (A03_CODIGO) REFERENCES PRODUTO_03(A03_codigo)
+);
+
+
+
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_AtualizarCliente`(IN V_A01_id int, IN V_A01_NOME varchar(50), IN V_A01_ENDERECO varchar(50), IN V_A01_TELEFONE varchar(11), IN V_A01_CREDITO double, IN V_A01_CPF varchar(11))
+BEGIN
+		UPDATE cliente_01
+		SET A01_NOME = V_A01_NOME, A01_ENDERECO = V_A01_ENDERECO, A01_TELEFONE = V_A01_TELEFONE, A01_CREDITO = V_A01_CREDITO, A01_CPF = V_A01_CPF
+		WHERE A01_CODIGO = V_A01_id;
+	END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_AtualizarItem`(IN V_A04_id int, IN V_A02_id int, IN V_A03_id int, IN V_A04_quantidade int, IN V_A04_valor_item decimal(10,2))
+BEGIN
+		UPDATE item_04
+		SET A02_CODIGO = V_A02_id, A03_CODIGO = V_A03_id, A04_quantidade = V_A04_quantidade, A04_valor_item = V_A04_valor_item
+		WHERE A04_CODIGO = V_A04_id;
+	END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_AtualizarPedido`(IN V_A02_id int, IN V_A02_data date, IN V_A02_valor_total decimal(10,2), IN V_A01_id int)
+BEGIN
+		UPDATE pedido_02
+		SET A01_CODIGO = V_A01_id, A02_data = V_A02_data, A02_valor_total = V_A02_valor_total
+		WHERE A02_CODIGO = V_A02_id;
+	END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_AtualizarPedido_SD`(IN V_A02_id int, IN V_A02_valor_total decimal(10,2), IN V_A01_id int)
+BEGIN
+		UPDATE pedido_02
+		SET A01_CODIGO = V_A01_id, A02_valor_total = V_A02_valor_total
+		WHERE A02_CODIGO = V_A02_id;
+	END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_AtualizarProduto`(IN V_A03_id int, IN V_A03_descricao varchar(250), IN V_A03_valor_unitario decimal(10,2), IN V_A03_estoque int)
+BEGIN
+		UPDATE produto_03
+		SET A03_descricao = V_A03_descricao, A03_valor_unitario = V_A03_valor_unitario, A03_estoque = V_A03_estoque
+		WHERE A03_CODIGO = V_A03_id;
+	END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_DeletarCliente`(IN V_A01_id int)
+BEGIN
+		DELETE FROM cliente_01 where A01_CODIGO = V_A01_id;
+	END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_DeletarItem`(IN V_A04_id int)
+BEGIN 
+		DELETE FROM item_04 WHERE A04_CODIGO = V_A04_id;
+	END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_DeletarPedido`(IN V_A02_id int)
+BEGIN
+		DELETE FROM pedido_02 where A02_CODIGO = V_A02_id;
+	END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_DeletarProduto`(IN V_A03_id int)
+BEGIN
+		DELETE FROM produto_03 where A03_CODIGO = V_A03_id;
+	END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_InsCliente_AI`(IN `V_A01_nome` VARCHAR(50), IN `V_A01_endereco` VARCHAR(50), IN `V_A01_telefone` CHAR(11), IN `V_A01_cpf` CHAR(11), IN `V_A01_credito` DECIMAL(10,2))
+BEGIN 
+    DECLARE V_id INTEGER;
+    SELECT MAX(A01_codigo) INTO V_id FROM CLIENTE_01;
+ 
+ 
+    IF V_id IS NULL THEN
+    SET V_id = 1;
+ELSE
+    SET V_id = V_id + 1;
+END IF;
+ 
+ 
+    INSERT INTO CLIENTE_01(A01_codigo, A01_nome, A01_endereco, A01_telefone, A01_cpf,A01_credito)
+    VALUES (V_id, V_A01_nome, V_A01_endereco, V_A01_telefone, V_A01_cpf, V_A01_credito);
+ 
+	COMMIT;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_InsItem_AI`(
+    IN `V_A02_codigo` INT,
+    IN `V_A03_codigo` INT,
+    IN `V_A04_quantidade` INT
+)
+BEGIN
+    DECLARE V_id INTEGER;
+    DECLARE V_A04_valor_item DECIMAL(10,2);
+
+    -- Seleciona o maior código atual da tabela ITEM_04
+    SELECT MAX(A04_codigo) INTO V_id FROM ITEM_04;
+
+    -- Verifica se o código retornado é NULL e define o código inicial ou o próximo valor
+    IF V_id IS NULL THEN
+        SET V_id = 1;
+    ELSE
+        SET V_id = V_id + 1;
+    END IF;
+
+    -- Puxa o valor unitário do produto da tabela PRODUTO_03
+    SELECT A03_valor_unitario INTO V_A04_valor_item FROM PRODUTO_03 WHERE A03_codigo = V_A03_codigo;
+
+    -- Insere um novo registro na tabela ITEM_04
+    INSERT INTO ITEM_04 (A04_codigo, A02_codigo, A03_codigo, A04_quantidade, A04_valor_item)
+    VALUES (V_id, V_A02_codigo, V_A03_codigo, V_A04_quantidade, V_A04_valor_item);
+    
+    -- Atualiza o estoque do produto na tabela PRODUTO_03
+    UPDATE PRODUTO_03
+    SET A03_estoque = A03_estoque - V_A04_quantidade
+    WHERE A03_codigo = V_A03_codigo;
+
+    -- Atualiza o valor total do pedido na tabela PEDIDO_02
+    UPDATE PEDIDO_02
+    SET A02_valor_total = A02_valor_total + (V_A04_quantidade * V_A04_valor_item)
+    WHERE A02_codigo = V_A02_codigo;
+
+    -- Realiza o commit das alterações
+    COMMIT;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_InsPedido_AI`(IN `A01_codigo` INT)
+BEGIN
+    DECLARE V_id INTEGER;
+    SELECT MAX(A02_codigo) INTO V_id FROM PEDIDO_02;
+ 
+    IF V_id IS NULL THEN
+        SET V_id = 1;
+    ELSE
+        SET V_id = V_id + 1;
+    END IF;
+ 
+    INSERT INTO PEDIDO_02(A02_codigo, A02_data, A02_valor_total, A01_codigo)
+    VALUES (V_id, CURDATE(), 0, A01_codigo);
+ 
+    COMMIT;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_InsProduto_AI`(IN `V_A03_descricao` VARCHAR(250), IN `V_A03_valor_unitario` DECIMAL(10,2), IN `V_A03_estoque` INT)
+BEGIN 
+
+    DECLARE V_id INTEGER;
+    SELECT MAX(A03_codigo) INTO V_id FROM PRODUTO_03;
+
+
+    IF V_id IS NULL THEN
+	SET V_id = 1;
+    ELSE
+	SET V_id = V_id + 1;
+    END IF;
+
+    INSERT INTO PRODUTO_03(A03_codigo, A03_descricao, A03_valor_unitario, A03_estoque)
+    VALUES (V_id, V_A03_descricao, V_A03_valor_unitario, V_A03_estoque);
+
+	COMMIT;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_LerCliente`(IN V_A01_id int)
+BEGIN
+		SELECT * FROM cliente_01 where A01_CODIGO = V_A01_id;
+	END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_LerItem`(IN V_A04_id int)
+BEGIN 
+		SELECT * FROM item_04 WHERE A04_CODIGO = V_A04_id;
+	END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_LerPedido`(IN V_A02_id int)
+BEGIN
+		SELECT * FROM pedido_02 where A02_CODIGO = V_A02_id;
+	END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_LerProduto`(IN `V_A03_id` INT)
+BEGIN
+		SELECT * FROM produto_03 where A03_CODIGO = V_A03_id;
+	END$$
+DELIMITER ;
