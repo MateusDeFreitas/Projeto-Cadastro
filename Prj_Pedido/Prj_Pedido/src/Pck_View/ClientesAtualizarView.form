@@ -48,55 +48,49 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jLabelTitulo" alignment="1" max="32767" attributes="0"/>
               <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="290" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Component id="labelCredito" alignment="1" min="-2" pref="117" max="-2" attributes="0"/>
-                                      <Component id="labelCpf" alignment="1" min="-2" pref="117" max="-2" attributes="0"/>
-                                      <Component id="labelTelefone" alignment="1" min="-2" pref="117" max="-2" attributes="0"/>
-                                      <Component id="labelEndereco" alignment="1" min="-2" pref="117" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="labelNome" alignment="1" min="-2" pref="117" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="labelCodigo" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                              <Component id="labelCredito" alignment="1" min="-2" pref="117" max="-2" attributes="0"/>
+                              <Component id="labelCpf" alignment="1" min="-2" pref="117" max="-2" attributes="0"/>
+                              <Component id="labelTelefone" alignment="1" min="-2" pref="117" max="-2" attributes="0"/>
+                              <Component id="labelEndereco" alignment="1" min="-2" pref="117" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextFieldCodigo" max="32767" attributes="0"/>
-                              <Component id="jTextFieldCredito" pref="291" max="32767" attributes="0"/>
-                              <Component id="jTextFieldEndereco" pref="291" max="32767" attributes="0"/>
-                              <Component id="jTextFieldTelefone" alignment="0" pref="291" max="32767" attributes="0"/>
-                              <Component id="jTextFieldCPF" alignment="0" pref="291" max="32767" attributes="0"/>
-                              <Component id="jTextFieldNome" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                          <Component id="labelNome" alignment="1" min="-2" pref="117" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="labelCodigo" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jTextFieldCodigo" max="32767" attributes="0"/>
+                      <Component id="jTextFieldCredito" pref="454" max="32767" attributes="0"/>
+                      <Component id="jTextFieldEndereco" pref="454" max="32767" attributes="0"/>
+                      <Component id="jTextFieldTelefone" alignment="0" pref="454" max="32767" attributes="0"/>
+                      <Component id="jTextFieldCPF" alignment="0" pref="454" max="32767" attributes="0"/>
+                      <Component id="jTextFieldNome" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="296" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jSeparator1" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                                  <Component id="jLabelSubTitulo" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="jButtonSair" min="-2" pref="134" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jButtonAtualizar" min="-2" pref="244" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jButtonVoltar" min="-2" pref="134" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="jLabelSubTitulo" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="984" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="jSeparator1" min="-2" pref="573" max="-2" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="347" max="-2" attributes="0"/>
+                  <Component id="jButtonSair" min="-2" pref="134" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jButtonAtualizar" min="-2" pref="244" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jButtonVoltar" min="-2" pref="134" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -107,39 +101,38 @@
                   <Component id="jLabelTitulo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="jLabelSubTitulo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jSeparator1" min="-2" pref="14" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="labelCodigo" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="jTextFieldCodigo" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="jTextFieldCodigo" min="-2" pref="23" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jTextFieldNome" min="-2" pref="23" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jTextFieldEndereco" min="-2" pref="23" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jTextFieldTelefone" min="-2" pref="23" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jTextFieldCPF" min="-2" pref="23" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jTextFieldCredito" min="-2" pref="23" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="labelCodigo" min="-2" pref="23" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="labelNome" min="-2" pref="23" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="labelEndereco" min="-2" pref="23" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="labelTelefone" min="-2" pref="23" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="labelCpf" min="-2" pref="23" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="labelCredito" min="-2" pref="23" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldNome" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="labelNome" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="labelEndereco" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="jTextFieldEndereco" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldTelefone" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="labelTelefone" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldCPF" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="labelCpf" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldCredito" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="labelCredito" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="54" max="32767" attributes="0"/>
+                  <EmptySpace pref="72" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" max="-2" attributes="0">
                       <Component id="jButtonVoltar" alignment="3" pref="54" max="32767" attributes="0"/>
                       <Component id="jButtonSair" alignment="3" pref="54" max="32767" attributes="0"/>
